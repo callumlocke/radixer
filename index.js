@@ -3,7 +3,7 @@
 var defaultCharacters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_';
 
 var Radixer = function (characters) {
-  if (!this instanceof Radixer) throw new Error('Called constructor without "new"');
+  if (!this instanceof Radixer) throw new Error('Constructor called without "new"');
 
   if (characters == null) {
     this.characters = defaultCharacters;
@@ -17,7 +17,7 @@ var Radixer = function (characters) {
     for (i = 0; i < count; i++) {
       chr = characters.charAt(i);
       if (characters.indexOf(chr, i + 1) !== -1)
-        throw new Error('String cannot have repeating characters');
+        throw new Error('String must not contain repeating characters');
     }
 
     this.characters = characters;
@@ -29,7 +29,7 @@ Radixer.prototype.numberToString = function (number) {
   if (
     typeof number !== 'number' || number === Infinity ||
     isNaN(number) || number < 0 || number % 1 !== 0
-  ) throw new Error('Expected an integer above zero');
+  ) throw new Error('Expected a natural number');
 
   var rixit;
   var result = '';

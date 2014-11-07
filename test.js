@@ -1,3 +1,4 @@
+/*jshint expr: true*/
 /*global describe, it*/
 'use strict';
 
@@ -23,5 +24,31 @@ describe('Radixer', function () {
       var string = radixer.numberToString(i);
       expect(radixer.stringToNumber(string)).to.equal(i);
     }
+  });
+
+  it('rejects bad input', function () {
+    var Radixer = require('./index');
+
+    expect(function () {
+      new Radixer('abcdefgbxyz'); // two b's
+    }).to.throw(/repeating/);
+
+    expect(function () {
+      new Radixer(54321); // wrong type
+    }).to.throw('Expected string');
+
+    var radixer = require('./index');
+
+    expect(function () {
+      radixer.numberToString(123.001);
+    }).to.throw('Expected a natural number');
+
+    expect(function () {
+      radixer.numberToString(123.0);
+    }).not.to.throw;
+
+    expect(function () {
+      radixer.numberToString('123');
+    }).to.throw('Expected a natural number');
   });
 });
