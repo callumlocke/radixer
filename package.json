@@ -1,0 +1,29 @@
+{
+  "name": "radixer",
+  "version": "0.0.0",
+  "description": "Get short string representations of big numbers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/callumlocke/radixer.git"
+  },
+  "keywords": [
+    "base",
+    "base64",
+    "radix",
+    "radix64"
+  ],
+  "author": "Callum Locke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/callumlocke/radixer/issues"
+  },
+  "homepage": "https://github.com/callumlocke/radixer",
+  "devDependencies": {
+    "chai": "~1.9.2",
+    "mocha": "~2.0.1"
+  }
+}
