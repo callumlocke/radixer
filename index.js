@@ -17,7 +17,7 @@ var Radixer = function (characters) {
     for (i = 0; i < count; i++) {
       chr = characters.charAt(i);
       if (characters.indexOf(chr, i + 1) !== -1)
-        throw new Error('String must not contain repeating characters');
+        throw new Error('String contains one or more repeated characters');
     }
 
     this.characters = characters;
@@ -44,11 +44,18 @@ Radixer.prototype.numberToString = function (number) {
 };
 
 Radixer.prototype.stringToNumber = function (string) {
+  if (typeof string !== 'string')
+    throw new TypeError('Expected string');
+
   var result = 0;
 
   for (var i = 0, l = string.length; i < l; i++) {
-    var chr = string.charAt(i);
-    result = (result * this.radix) + this.characters.indexOf(string.charAt(i));
+    var index = this.characters.indexOf(string.charAt(i));
+
+    if (index === -1)
+      throw new Error('String contains characters not in set');
+
+    result = (result * this.radix) + index;
   }
 
   return result;

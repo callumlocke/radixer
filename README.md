@@ -6,9 +6,7 @@
 
 This package lets you convert a big number like `123456789` to a short string like `7MyqL`, and back again.
 
-You can do the same thing natively with `.toString()` and `parseInt()`, but the radix is limited to 36 (using the 26 letters `a-z` and the 10 digits `0-9`).
-
-This package uses a larger character set (including `A-Z`, `-` and `_`, totalling 64), so you get shorter strings that are still URL-friendly.
+You can do the same thing natively with `.toString()` and `parseInt()`, but only up to a radix of 36 (using the 26 letters `a-z` and the 10 digits `0-9`). This package uses a larger character set (including `A-Z`, `-` and `_`, totalling 64), so you get shorter strings that are still URL-friendly.
 
 
 ## Basic usage
@@ -16,7 +14,7 @@ This package uses a larger character set (including `A-Z`, `-` and `_`, totallin
 ```js
 var radixer = require('radixer');
 
-radixer.numberToString(12345678); // "l65E"
+radixer.numberToString(12345678); // l65E
 radixer.numberToString('l65E'); // 12345678
 ```
 
@@ -31,7 +29,7 @@ The default radixer uses the following 64 characters:
 
 Use the module as a **constructor** to get a custom radixer, using whatever character set you want.
 
-The more characters you provide, the shorter the strings will be.
+The more characters you provide, the shorter your strings will be.
 
 ```js
 var Radixer = require('radixer');
