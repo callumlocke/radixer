@@ -16,7 +16,7 @@ describe('Radixer', function () {
   it('works with default 64 characters', function () {
     var radixer = require('./index');
 
-    var max = 10000;
+    var max = 1000;
     var strings = [];
     for (var i = 0; i < max; i++) {
       strings[i] = radixer.numberToString(i);
@@ -30,7 +30,7 @@ describe('Radixer', function () {
     var Radixer = require('./index');
     var radixer = new Radixer('àêīöû!@%$^&*;[]');
 
-    var max = 10000;
+    var max = 1000;
     var strings = [];
     for (var i = 0; i < max; i++) {
       strings[i] = radixer.numberToString(i);
