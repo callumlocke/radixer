@@ -8,6 +8,13 @@ This package lets you convert a big number like `123456789` to a short string li
 
 You can do the same thing natively with `.toString()` and `parseInt()`, but only up to a radix of 36 (using the 26 letters `a-z` and the 10 digits `0-9`). This package uses a larger character set (including `A-Z`, `-` and `_`, totalling 64), so you get shorter strings that are still URL-friendly.
 
+## Install
+
+```sh
+$ npm install radixer
+```
+
+Also works fine in the browser via Browserify – no dependencies.
 
 ## Basic usage
 
@@ -15,7 +22,7 @@ You can do the same thing natively with `.toString()` and `parseInt()`, but only
 var radixer = require('radixer');
 
 radixer.numberToString(12345678); // l65E
-radixer.numberToString('l65E'); // 12345678
+radixer.stringToNumber('l65E'); // 12345678
 ```
 
 The default radixer uses the following 64 characters:
